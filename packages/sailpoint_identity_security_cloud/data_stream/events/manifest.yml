@@ -1,13 +1,28 @@
 title: "Events"
 type: logs
 streams:
-  - input: logfile
-    title: Sample logs
-    description: Collect sample logs
+  - input: cel
+    title: Sailpoint identity security cloud Events
+    description: Sailpoint identity security cloud Request Settings
+    enabled: true
+    template_path: cel.yml.hbs
     vars:
-      - name: paths
+      - name: interval
         type: text
-        title: Paths
+        title: Interval
+        description: Data for all managed accounts will be re-fetched at this interval
+        show_user: false
+        required: true
+        default: "60s"
+      - name: limit
+        type: integer
+        title: Limit
+        description: Number of events to fetch per request
+        show_user: true
+        required: true
+        default: 1000
+      - name: tags
+        type: text
+        title: Tags
         multi: true
-        default:
-          - /var/log/*.log
+        show_user: true
