@@ -1,0 +1,75 @@
+- name: sailpoint_identity_security_cloud
+  title: 'Sailpoint Identity Security Cloud'
+  type: group
+  fields:
+    - name: auditlog
+      type: group
+      description: 'User audit related data fields'
+      fields:
+        - name: id
+          type: keyword
+          description: 'Unique identifier for the audit event'
+        - name: name
+          type: keyword
+          description: 'Action performed by the user (e.g., Login, Logout)'
+        - name: type
+          type: keyword
+          description: 'Section or feature where the action took place'
+        - name: synced
+          type: keyword
+          description: 'Unique identifier for the user'
+        - name: created
+          type: keyword
+          description: 'Username of the user performing the action'
+        - name: action
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: actor.name
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: target.name
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: stack
+          type: keyword
+          description: 'IP address from which the user action originated'   
+        - name: trackingNumber
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: ipAddress
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: details
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: attributes.sourceName
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: attributes.pod
+          type: keyword
+          description: 'IP address from which the user action originated' 
+        - name: attributes.org
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: attributes.info
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: attributes.hostName
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: operation
+          type: keyword
+          description: 'IP address from which the user action originated'   
+        - name: status
+          type: keyword
+          description: 'IP address from which the user action originated'
+        - name: technicalName
+          type: keyword
+          description: 'IP address from which the user action originated'   
+        - name: _version
+          type: keyword
+          description: 'IP address from which the user action originated' 
+        - name: objects
+          type: keyword
+          description: 'IP address from which the user action originated'   
+       

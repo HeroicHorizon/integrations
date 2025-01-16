@@ -28,34 +28,34 @@ state:
   initial_interval: {{initial_interval}}
 program: |-
   state.with(
-    request(
-      "POST",
-      state.url.trim_right("/") + "/v2024/search/events"
-    ).with(
-      {
-        "Header": {
-          "Content-Type": ["application/json"],
-        },
-        "Body": {
-          "searchAfter": [],
-          "queryType": "SAILPOINT",
-          "sort": ["created"],
-          "query": {"query": "created:>2024\\-11\\-24T12\\:08\\:53\\.878Z"},
-          "queryResultFilter": {},
-        }.encode_json(),
-      }
-    ).do_request().as(resp,
-      bytes(resp.Body).decode_json().as(body,
-        {
-          "events": body.map(e,
-            {
-              "message": e.encode_json(),
-            }
-          ),
-          "want_more": true,
-        }
-      )
-    )
+  	request(
+  		"POST",
+  		state.url.trim_right("/") + "/v2024/search/events"
+  	).with(
+  		{
+  			"Header": {
+  				"Content-Type": ["application/json"],
+  			},
+  			"Body": {
+  				"searchAfter": [],
+  				"queryType": "SAILPOINT",
+  				"sort": ["created"],
+  				"query": {"query": "created:>2024\\-11\\-24T12\\:08\\:53\\.878Z"},
+  				"queryResultFilter": {},
+  			}.encode_json(),
+  		}
+  	).do_request().as(resp,
+  		bytes(resp.Body).decode_json().as(body,
+  			{
+  				"events": body.map(e,
+  					{
+  						"message": e.encode_json(),
+  					}
+  				),
+  				"want_more": size(body) > 0,
+  			}
+  		)
+  	)
   )
 tags:
 {{#if preserve_original_event}}
