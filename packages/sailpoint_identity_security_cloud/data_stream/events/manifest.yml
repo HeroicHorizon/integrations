@@ -13,7 +13,7 @@ streams:
         description: Data for all managed accounts will be re-fetched at this interval
         show_user: false
         required: true
-        default: "60s"
+        default: "1h"
       - name: limit
         type: integer
         title: Limit
@@ -21,6 +21,13 @@ streams:
         show_user: true
         required: true
         default: 1000
+      - name: initial_interval
+        type: text
+        title: Initial Interval
+        multi: false
+        required: true
+        show_user: false
+        default: "2160h"
       - name: tags
         type: text
         title: Tags

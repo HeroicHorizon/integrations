@@ -32,7 +32,7 @@
           description: 'IP address from which the user action originated'
         - name: stack
           type: keyword
-          description: 'IP address from which the user action originated'   
+          description: 'IP address from which the user action originated'
         - name: trackingNumber
           type: keyword
           description: 'IP address from which the user action originated'
@@ -47,7 +47,7 @@
           description: 'IP address from which the user action originated'
         - name: attributes.pod
           type: keyword
-          description: 'IP address from which the user action originated' 
+          description: 'IP address from which the user action originated'
         - name: attributes.org
           type: keyword
           description: 'IP address from which the user action originated'
@@ -59,17 +59,16 @@
           description: 'IP address from which the user action originated'
         - name: operation
           type: keyword
-          description: 'IP address from which the user action originated'   
+          description: 'IP address from which the user action originated'
         - name: status
           type: keyword
           description: 'IP address from which the user action originated'
         - name: technicalName
           type: keyword
-          description: 'IP address from which the user action originated'   
+          description: 'IP address from which the user action originated'
         - name: _version
           type: keyword
-          description: 'IP address from which the user action originated' 
+          description: 'IP address from which the user action originated'
         - name: objects
           type: keyword
-          description: 'IP address from which the user action originated'   
-       
+          description: 'IP address from which the user action originated'
