@@ -3,13 +3,12 @@ description: Pipeline for processing sailpoint identity security cloud events
 processors:
   - rename:
       field: message
-      target_field: sailpoint_identity_security_cloud.event
+      target_field: sailpoint_identity_security_cloud.events
 
   - fingerprint:
       fields:
-        - sailpoint_identity_security_cloud.event.id
+        - sailpoint_identity_security_cloud.events.id
       target_field: "_id"
-
 ##################### Scripts for processing input #####################
   - script:
       description: Drops null/empty values recursively.
@@ -54,14 +53,18 @@ processors:
           }
           return snakeCaseMap;
         }
-        if (ctx.sailpoint_identity_security_cloud.event != null) {
-          ctx.sailpoint_identity_security_cloud.event = keysToSnakeCase(ctx.sailpoint_identity_security_cloud.event);
+        if (ctx.sailpoint_identity_security_cloud.events != null) {
+          ctx.sailpoint_identity_security_cloud.events = keysToSnakeCase(ctx.sailpoint_identity_security_cloud.events);
         }
+  - gsub:
+      field: "sailpoint_identity_security_cloud.events.ip_address"
+      pattern: "^(?!\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b|\\b(?:[a-fA-F0-9:]+:+)+[a-fA-F0-9]+\\b).*"
+      replacement: "INVALID_IP"  
+         
+  - remove:
+      field: sailpoint_identity_security_cloud.events.ip_address
+      if: ctx.sailpoint_identity_security_cloud.events.ip_address == "INVALID_IP"         
 ##################### ECS Fields #####################
-  - set:
-      field: ecs.version
-      value: '8.11.0'
-
   - set:
       field: event.kind
       value: event
@@ -69,14 +72,21 @@ processors:
   - append:
       field: event.category
       value: iam
+  - set:
+      field: event.dataset
+      value: sailpoint_identity_security_cloud.events
 
-  - append:
+  - set:
+      field: event.module
+      value: sailpoint_identity_security_cloud
+
+  - set:
       field: event.type
-      value: info
+      value: "{{{sailpoint_identity_security_cloud.events.type}}}"
 
   - set:
       field: event.dataset
-      value: sailpoint_identity_security_cloud.event
+      value: sailpoint_identity_security_cloud.events
 
   - set:
       field: event.module
@@ -84,44 +94,31 @@ processors:
 
   - set:
       field: event.id
-      copy_from: ctx.sailpoint_identity_security_cloud.event.id
+      copy_from: ctx.sailpoint_identity_security_cloud.events.id
       ignore_empty_value: true
-
-
-  - set:
-      field: user.name
-      value: "{{{sailpoint_identity_security_cloud.event.actor.name}}}"
-      ignore_empty_value: true
-
   - append:
-      field: related.user
-      value: "{{{sailpoint_identity_security_cloud.event.actor.name}}}"  
+      field: related.hosts
+      value: "{{{sailpoint_identity_security_cloud.events.ipaddress}}}"
       allow_duplicates: false
+      if: ctx.sailpoint_identity_security_cloud.events?.ipaddress != null && ctx.sailpoint_identity_security_cloud.events.ipaddress != ''
 
   - append:
       field: related.hosts
-      value: "{{{sailpoint_identity_security_cloud.event.ipaddress}}}"
-      allow_duplicates: false
-      if: ctx.sailpoint_identity_security_cloud.event?.ipaddress != null && ctx.sailpoint_identity_security_cloud.event.ipaddress != ''
-
-  - append:
-      field: related.hosts
-      value: "{{{sailpoint_identity_security_cloud.event.attributes.host_name}}}"
+      value: "{{{sailpoint_identity_security_cloud.events.attributes.host_name}}}"
       allow_duplicates: false   
-      if: ctx.sailpoint_identity_security_cloud.event?.host_name != null && ctx.sailpoint_identity_security_cloud.event.host_name != '' 
+      if: ctx.sailpoint_identity_security_cloud.events?.host_name != null && ctx.sailpoint_identity_security_cloud.events.host_name != '' 
+
  #################### Override host.ip ######################
   - convert:
-      field: sailpoint_identity_security_cloud.event.host_name
+      field: sailpoint_identity_security_cloud.events.ip_address
       type: ip
-      if: ctx.sailpoint_identity_security_cloud.event?.host_name != null && ctx.sailpoint_identity_security_cloud.event.host_name != ''
-      ignore_failure: true 
+      if: ctx.sailpoint_identity_security_cloud.events?.ip_address != null && ctx.sailpoint_identity_security_cloud.events.ip_address != ''
       ignore_missing: true
-
-  - set:
+  - append:
       field: host.ip
-      copy_from : ctx.sailpoint_identity_security_cloud.event.host_name
-      ignore_empty_value: true
-
+      value: "{{{sailpoint_identity_security_cloud.events.ip_address}}}"    
+      allow_duplicates: false 
+      
   - geoip:
       field: host.ip
       target_field: host.geo
@@ -130,7 +127,7 @@ processors:
 ################### Set @timestamp ##########################
   - set:
      field: "@timestamp"
-     copy_from: ctx.sailpoint_identity_security_cloud.event.created
+     copy_from: ctx.sailpoint_identity_security_cloud.events.created
      ignore_empty_value: true
  ################### Error Log fields ###################
 on_failure:

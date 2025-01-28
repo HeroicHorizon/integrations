@@ -1,0 +1,72 @@
+{
+    "expected": [
+        {
+            "event": {
+                "category": [
+                    "iam"
+                ],
+                "dataset": "sailpoint_identity_security_cloud.events",
+                "kind": "event",
+                "module": "sailpoint_identity_security_cloud",
+                "type": "PASSWORD_ACTIVITY"
+            },
+            "host": {
+                "geo": {
+                    "city_name": "Linköping",
+                    "continent_name": "Europe",
+                    "country_iso_code": "SE",
+                    "country_name": "Sweden",
+                    "location": {
+                        "lat": 58.4167,
+                        "lon": 15.6167
+                    },
+                    "region_iso_code": "SE-E",
+                    "region_name": "Östergötland County"
+                },
+                "ip": [
+                    "89.160.20.128"
+                ]
+            },
+            "sailpoint_identity_security_cloud": {
+                "events": {
+                    "_type": "event",
+                    "_version": "v2",
+                    "action": "USER_PASSWORD_UPDATE_PASSED",
+                    "actor": {
+                        "name": "balaji.dongare"
+                    },
+                    "attributes": {
+                        "account_id": "balaji.dongare",
+                        "host_name": "81.2.69.142",
+                        "info": "Password workflow invoked successfully. Request Id :923169315cab448cac82091dc4827f38",
+                        "org": "ta-partner14055",
+                        "pod": "se01-useast1",
+                        "scope": "[\"sp:scopes:all\"]",
+                        "source_name": "IdentityNow"
+                    },
+                    "created": "2024-12-23T10:58:27.962Z",
+                    "details": "38eef046d4594d7e9186cee997232f3d",
+                    "id": "f514ad697321c49b61b65ec9b5099a192eb598d2c520d4e09f958f7abdfc16dd",
+                    "ip_address": "89.160.20.128",
+                    "name": "Update User Password Passed",
+                    "objects": [
+                        "USER",
+                        "PASSWORD"
+                    ],
+                    "operation": "UPDATE",
+                    "org": "ta-partner14055",
+                    "pod": "se01-useast1",
+                    "stack": "pigs",
+                    "status": "PASSED",
+                    "synced": "2024-12-23T10:58:32.977Z",
+                    "target": {
+                        "name": "balaji.dongare"
+                    },
+                    "technical_name": "USER_PASSWORD_UPDATE_PASSED",
+                    "tracking_number": "fb38cc3fb990451dab51133aed21268a",
+                    "type": "PASSWORD_ACTIVITY"
+                }
+            }
+        }
+    ]
+}
