@@ -86,6 +86,7 @@
 /packages/azure/data_stream/identity_protection @elastic/obs-infraobs-integrations
 /packages/azure/data_stream/platformlogs @elastic/obs-infraobs-integrations
 /packages/azure/data_stream/provisioning @elastic/obs-infraobs-integrations
+/packages/sailpoint_identity_security_cloud @elastic/security-service-integrations
 /packages/azure/data_stream/signinlogs @elastic/obs-infraobs-integrations
 /packages/azure/data_stream/springcloudlogs @elastic/obs-infraobs-integrations
 /packages/azure/data_stream/application_gateway @elastic/security-service-integrations
