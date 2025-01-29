@@ -9,17 +9,17 @@
                 "action": "USER_PASSWORD_UPDATE_PASSED",
                 "type": "PASSWORD_ACTIVITY",
                 "actor": {
-                    "name": "balaji.dongare"
+                    "name": "test.user"
                 },
                 "target": {
-                    "name": "balaji.dongare"
+                    "name": "test.user"
                 },
                 "stack": "pigs",
                 "details": "38eef046d4594d7e9186cee997232f3d",
                 "trackingNumber": "fb38cc3fb990451dab51133aed21268a",
                 "ipAddress": "89.160.20.128",
                 "attributes": {
-                    "accountId": "balaji.dongare",
+                    "accountId": "test.user",
                     "sourceName": "IdentityNow",
                     "info": "Password workflow invoked successfully. Request Id :923169315cab448cac82091dc4827f38",
                     "hostName": "81.2.69.142",

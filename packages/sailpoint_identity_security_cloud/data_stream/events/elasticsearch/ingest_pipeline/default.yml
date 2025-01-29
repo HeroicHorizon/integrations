@@ -27,6 +27,7 @@ processors:
           return false;
         }
         dropEmptyFields(ctx);
+        
   - script:
       description: Convert Additional Info keys to snake case.
       tag: additional-info-keys-to-snake-case
@@ -69,6 +70,10 @@ processors:
       field: event.kind
       value: event
 
+  - set:
+      field: ecs.version
+      value: "8.11.0"
+
   - append:
       field: event.category
       value: iam
@@ -96,11 +101,18 @@ processors:
       field: event.id
       copy_from: ctx.sailpoint_identity_security_cloud.events.id
       ignore_empty_value: true
+
   - append:
       field: related.hosts
       value: "{{{sailpoint_identity_security_cloud.events.ipaddress}}}"
       allow_duplicates: false
       if: ctx.sailpoint_identity_security_cloud.events?.ipaddress != null && ctx.sailpoint_identity_security_cloud.events.ipaddress != ''
+
+  - append:
+      field: related.user
+      value: "{{{sailpoint_identity_security_cloud.events.actor.name}}}"
+      allow_duplicates: false   
+      if: ctx.sailpoint_identity_security_cloud.events?.actor.name != null && ctx.sailpoint_identity_security_cloud.events.actor.name != '' 
 
   - append:
       field: related.hosts
@@ -114,6 +126,7 @@ processors:
       type: ip
       if: ctx.sailpoint_identity_security_cloud.events?.ip_address != null && ctx.sailpoint_identity_security_cloud.events.ip_address != ''
       ignore_missing: true
+
   - append:
       field: host.ip
       value: "{{{sailpoint_identity_security_cloud.events.ip_address}}}"    
@@ -134,6 +147,7 @@ on_failure:
   - append:
       field: error.message
       value: '{{{_ingest.on_failure_message}}}'
+
   - set:
       field: event.kind
       value: pipeline_error
