@@ -13,10 +13,3 @@
 - name: input.type
   type: keyword
   description: Input type.
-- name: ecs.version
-  type: keyword
-  description: ECS version.
-- name: related.user
-  type: keyword
-  description: ECS related user.
-

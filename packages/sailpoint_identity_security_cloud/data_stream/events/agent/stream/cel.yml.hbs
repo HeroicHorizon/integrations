@@ -43,7 +43,7 @@ program: |-
   				"searchAfter": [string(state.?cursor.searchAfter.orValue(""))],
   				"queryType": "SAILPOINT",
   				"sort": ["created"],
-  				"query": {string("query"): string("created:>" + string((now - duration(state.initial_interval)).format(time_layout.RFC3339)).split("-").as(str1, str1.join("\\-")).split(":").as(str2, str2.join("\\:")))},
+  				"query": {"query": "created:>" + string((now - duration(state.initial_interval)).format(time_layout.RFC3339)).split("-").as(str1, str1.join("\\-")).split(":").as(str2, str2.join("\\:"))},
   				"queryResultFilter": {},
   			}.encode_json(),
   		}
@@ -57,7 +57,7 @@ program: |-
   					}
   				),
   				"want_more": size(body) == state.limit,
-  				"cursor": {"searchAfter": body[int(size(body) - 1)].created},
+  				"cursor": {"searchAfter": string(body[int(size(body) - 1)].created)},
   			}
   		)
   	)

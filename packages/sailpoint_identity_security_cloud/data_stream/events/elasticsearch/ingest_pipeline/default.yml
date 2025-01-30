@@ -57,14 +57,6 @@ processors:
         if (ctx.sailpoint_identity_security_cloud.events != null) {
           ctx.sailpoint_identity_security_cloud.events = keysToSnakeCase(ctx.sailpoint_identity_security_cloud.events);
         }
-  - gsub:
-      field: "sailpoint_identity_security_cloud.events.ip_address"
-      pattern: "^(?!\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b|\\b(?:[a-fA-F0-9:]+:+)+[a-fA-F0-9]+\\b).*"
-      replacement: "INVALID_IP"  
-         
-  - remove:
-      field: sailpoint_identity_security_cloud.events.ip_address
-      if: ctx.sailpoint_identity_security_cloud.events.ip_address == "INVALID_IP"         
 ##################### ECS Fields #####################
   - set:
       field: event.kind
@@ -87,7 +79,7 @@ processors:
 
   - set:
       field: event.type
-      value: "{{{sailpoint_identity_security_cloud.events.type}}}"
+      value: ["info"]
 
   - set:
       field: event.dataset
@@ -104,10 +96,10 @@ processors:
 
   - append:
       field: related.hosts
-      value: "{{{sailpoint_identity_security_cloud.events.ipaddress}}}"
+      value: "{{{sailpoint_identity_security_cloud.events.ip_address}}}"
       allow_duplicates: false
-      if: ctx.sailpoint_identity_security_cloud.events?.ipaddress != null && ctx.sailpoint_identity_security_cloud.events.ipaddress != ''
-
+      if: ctx.sailpoint_identity_security_cloud.events.ip_address != null && ctx.sailpoint_identity_security_cloud.events.ip_address != ''
+  
   - append:
       field: related.user
       value: "{{{sailpoint_identity_security_cloud.events.actor.name}}}"
@@ -127,11 +119,16 @@ processors:
       if: ctx.sailpoint_identity_security_cloud.events?.ip_address != null && ctx.sailpoint_identity_security_cloud.events.ip_address != ''
       ignore_missing: true
 
+  - remove:
+      field: sailpoint_identity_security_cloud.events.ip_address
+      if: ctx.sailpoint_identity_security_cloud.events.ip_address == "" 
+
   - append:
       field: host.ip
       value: "{{{sailpoint_identity_security_cloud.events.ip_address}}}"    
       allow_duplicates: false 
-      
+      if: ctx.sailpoint_identity_security_cloud.events.ip_address != null && ctx.sailpoint_identity_security_cloud.events.ip_address != ''
+
   - geoip:
       field: host.ip
       target_field: host.geo

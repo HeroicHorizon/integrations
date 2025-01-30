@@ -89,6 +89,87 @@
             - name: user_id
               type: keyword
               description: user id.
+            - name: duration
+              type: keyword
+              description: duration of process.
+            - name: process_id
+              type: keyword
+              description: process id.
+            - name: identities_processed
+              type: keyword
+              description: identities_processed id.
+            - name: operation
+              type: keyword
+              description: opration type.
+            - name: account_uuid
+              type: keyword
+              description: account uuid.
+            - name: cloud_app_name
+              type: keyword
+              description: cloud app name.
+            - name: account_name
+              type: keyword
+              description: account name.
+            - name: attribute_name
+              type: keyword
+              description: attribute name.
+            - name: attribute_value
+              type: keyword
+              description: attribute value.
+            - name: interface
+              type: keyword
+              description: interface.
+            - name: app_id
+              type: keyword
+              description: app id.
+            - name: errors
+              type: keyword
+              description: errors.
+            - name: match_all_accounts_before
+              type: keyword
+              description: match_all_accounts_before
+            - name: modified_before
+              type: keyword
+              description: modified_before
+            - name: modified_after
+              type: keyword
+              description: modified_after
+            - name: id
+              type: keyword
+              description: id
+            - name: match_all_accounts_after
+              type: keyword
+              description: match_all_accounts_after
+            - name: access_profiles_after
+              type: keyword
+              description: access_profiles_after
+            - name: access_profiles_before
+              type: keyword
+              description: access_profiles_before
+            - name: match_all_account
+              type: keyword
+              description: match_all_account
+            - name: name
+              type: keyword
+              description: name
+            - name: description
+              type: keyword
+              description: description
+            - name: account_source
+              type: keyword
+              description: account source
+            - name: segment
+              type: keyword
+              description: segment
+            - name: users_added
+              type: keyword
+              description: users added
+            - name: identities_total
+              type: keyword
+              description: identities total
+            - name: identities_selected
+              type: keyword
+              description: identities selected
         - name: target
           type: group
           fields:
