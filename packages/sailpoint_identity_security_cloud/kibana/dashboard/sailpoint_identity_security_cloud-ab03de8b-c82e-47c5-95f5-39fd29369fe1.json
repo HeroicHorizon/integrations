@@ -1,0 +1,1438 @@
+{
+    "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "syncCursor": true,
+            "syncTooltips": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "2c96901d-ce0c-4482-b152-6b5f10e410ce",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "53a11365-3e5d-447a-8f77-db32dd126f00": {
+                                            "columnOrder": [
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04"
+                                            ],
+                                            "columns": {
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"FAILED\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of failed events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        },
+                                        "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2": {
+                                            "columnOrder": [
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc",
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623"
+                                            ],
+                                            "columns": {
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"FAILED\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of failed events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                },
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "linkToLayers": [
+                                                "53a11365-3e5d-447a-8f77-db32dd126f00"
+                                            ],
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.dataset",
+                                        "index": "2c96901d-ce0c-4482-b152-6b5f10e410ce",
+                                        "key": "event.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "sailpoint_identity_security_cloud.events"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.dataset": "sailpoint_identity_security_cloud.events"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "color": "#F44336",
+                                "layerId": "53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "layerType": "data",
+                                "metricAccessor": "b172007f-82be-4000-8c8c-be2aa98bbc04",
+                                "showBar": false,
+                                "trendlineLayerId": "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "trendlineLayerType": "metricTrendline",
+                                "trendlineMetricAccessor": "132dd3e9-5921-4bd6-b264-126d00fb5623",
+                                "trendlineTimeAccessor": "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 5,
+                    "i": "d92d9d3a-229b-4e7e-8d16-f1581effd32b",
+                    "w": 10,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "d92d9d3a-229b-4e7e-8d16-f1581effd32b",
+                "title": " ",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "53a11365-3e5d-447a-8f77-db32dd126f00": {
+                                            "columnOrder": [
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04"
+                                            ],
+                                            "columns": {
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"PASSED\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of passed events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        },
+                                        "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2": {
+                                            "columnOrder": [
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc",
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623"
+                                            ],
+                                            "columns": {
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"PASSED\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of passed events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                },
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "linkToLayers": [
+                                                "53a11365-3e5d-447a-8f77-db32dd126f00"
+                                            ],
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.dataset",
+                                        "index": "197325c4-d511-4448-a87f-faf2968d64db",
+                                        "key": "event.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "sailpoint_identity_security_cloud.events"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.dataset": "sailpoint_identity_security_cloud.events"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "color": "#00C853",
+                                "layerId": "53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "layerType": "data",
+                                "metricAccessor": "b172007f-82be-4000-8c8c-be2aa98bbc04",
+                                "showBar": false,
+                                "trendlineLayerId": "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "trendlineLayerType": "metricTrendline",
+                                "trendlineMetricAccessor": "132dd3e9-5921-4bd6-b264-126d00fb5623",
+                                "trendlineTimeAccessor": "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 5,
+                    "i": "17fd0e88-898d-4fcc-8a39-a5e28c290d3e",
+                    "w": 10,
+                    "x": 10,
+                    "y": 0
+                },
+                "panelIndex": "17fd0e88-898d-4fcc-8a39-a5e28c290d3e",
+                "title": " ",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "d790f6f9-7c8e-4cfc-884f-9fa5e07540a3",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "53a11365-3e5d-447a-8f77-db32dd126f00": {
+                                            "columnOrder": [
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04"
+                                            ],
+                                            "columns": {
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"PROCESSED\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of processed events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        },
+                                        "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2": {
+                                            "columnOrder": [
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc",
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623"
+                                            ],
+                                            "columns": {
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"PROCESSED\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of processed events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                },
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "linkToLayers": [
+                                                "53a11365-3e5d-447a-8f77-db32dd126f00"
+                                            ],
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.dataset",
+                                        "index": "d790f6f9-7c8e-4cfc-884f-9fa5e07540a3",
+                                        "key": "event.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "sailpoint_identity_security_cloud.events"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.dataset": "sailpoint_identity_security_cloud.events"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "color": "#2196F3",
+                                "layerId": "53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "layerType": "data",
+                                "metricAccessor": "b172007f-82be-4000-8c8c-be2aa98bbc04",
+                                "showBar": false,
+                                "trendlineLayerId": "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "trendlineLayerType": "metricTrendline",
+                                "trendlineMetricAccessor": "132dd3e9-5921-4bd6-b264-126d00fb5623",
+                                "trendlineTimeAccessor": "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 5,
+                    "i": "e03847f3-ed7a-4d24-bb3a-dc1630c9ecc9",
+                    "w": 10,
+                    "x": 20,
+                    "y": 0
+                },
+                "panelIndex": "e03847f3-ed7a-4d24-bb3a-dc1630c9ecc9",
+                "title": " ",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "53a11365-3e5d-447a-8f77-db32dd126f00": {
+                                            "columnOrder": [
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04"
+                                            ],
+                                            "columns": {
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"STARTED\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of started events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        },
+                                        "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2": {
+                                            "columnOrder": [
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc",
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623"
+                                            ],
+                                            "columns": {
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"STARTED\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of started events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                },
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "linkToLayers": [
+                                                "53a11365-3e5d-447a-8f77-db32dd126f00"
+                                            ],
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.dataset",
+                                        "index": "197325c4-d511-4448-a87f-faf2968d64db",
+                                        "key": "event.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "sailpoint_identity_security_cloud.events"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.dataset": "sailpoint_identity_security_cloud.events"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "color": "#FF9800",
+                                "layerId": "53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "layerType": "data",
+                                "metricAccessor": "b172007f-82be-4000-8c8c-be2aa98bbc04",
+                                "showBar": false,
+                                "trendlineLayerId": "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "trendlineLayerType": "metricTrendline",
+                                "trendlineMetricAccessor": "132dd3e9-5921-4bd6-b264-126d00fb5623",
+                                "trendlineTimeAccessor": "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 5,
+                    "i": "6851f847-e6a9-4583-8cc2-70a7bb2cf481",
+                    "w": 9,
+                    "x": 30,
+                    "y": 0
+                },
+                "panelIndex": "6851f847-e6a9-4583-8cc2-70a7bb2cf481",
+                "title": " ",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "55c6b7f6-f28e-4f4f-954d-a651ada6aa1b",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "53a11365-3e5d-447a-8f77-db32dd126f00": {
+                                            "columnOrder": [
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04"
+                                            ],
+                                            "columns": {
+                                                "b172007f-82be-4000-8c8c-be2aa98bbc04": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"SUCCESS\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of succeeded events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        },
+                                        "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2": {
+                                            "columnOrder": [
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc",
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623"
+                                            ],
+                                            "columns": {
+                                                "132dd3e9-5921-4bd6-b264-126d00fb5623": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "sailpoint_identity_security_cloud.events.status :\"SUCCESS\" "
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Count of succeeded events",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                },
+                                                "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "linkToLayers": [
+                                                "53a11365-3e5d-447a-8f77-db32dd126f00"
+                                            ],
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.dataset",
+                                        "index": "55c6b7f6-f28e-4f4f-954d-a651ada6aa1b",
+                                        "key": "event.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "sailpoint_identity_security_cloud.events"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.dataset": "sailpoint_identity_security_cloud.events"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "color": "#388E3C",
+                                "layerId": "53a11365-3e5d-447a-8f77-db32dd126f00",
+                                "layerType": "data",
+                                "metricAccessor": "b172007f-82be-4000-8c8c-be2aa98bbc04",
+                                "showBar": false,
+                                "trendlineLayerId": "b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+                                "trendlineLayerType": "metricTrendline",
+                                "trendlineMetricAccessor": "132dd3e9-5921-4bd6-b264-126d00fb5623",
+                                "trendlineTimeAccessor": "2fa43dd0-9cfd-44d0-9dc7-6edd403a92bc"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 5,
+                    "i": "f9931fc9-0cd0-4ea9-bc8f-1a3f8d34c9e8",
+                    "w": 9,
+                    "x": 39,
+                    "y": 0
+                },
+                "panelIndex": "f9931fc9-0cd0-4ea9-bc8f-1a3f8d34c9e8",
+                "title": " ",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-2b9baa38-f896-48ed-bbf8-0e0479f76cf5",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "69906880-3e1a-40aa-9521-62422d0967c5",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "2b9baa38-f896-48ed-bbf8-0e0479f76cf5": {
+                                            "columnOrder": [
+                                                "d3092ee2-353d-4b56-bd77-99e54d638313",
+                                                "98a40672-a990-44c9-ac81-2689ac98495c"
+                                            ],
+                                            "columns": {
+                                                "98a40672-a990-44c9-ac81-2689ac98495c": {
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count of records",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "___records___"
+                                                },
+                                                "d3092ee2-353d-4b56-bd77-99e54d638313": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top 100 values of sailpoint_identity_security_cloud.events.type",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "98a40672-a990-44c9-ac81-2689ac98495c",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": false,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "secondaryFields": [],
+                                                        "size": 100
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.type"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.dataset",
+                                        "index": "69906880-3e1a-40aa-9521-62422d0967c5",
+                                        "key": "event.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "sailpoint_identity_security_cloud.events"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.dataset": "sailpoint_identity_security_cloud.events"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "categoryDisplay": "default",
+                                        "colorMapping": {
+                                            "assignments": [],
+                                            "colorMode": {
+                                                "type": "categorical"
+                                            },
+                                            "paletteId": "eui_amsterdam_color_blind",
+                                            "specialAssignments": [
+                                                {
+                                                    "color": {
+                                                        "type": "loop"
+                                                    },
+                                                    "rule": {
+                                                        "type": "other"
+                                                    },
+                                                    "touched": false
+                                                }
+                                            ]
+                                        },
+                                        "layerId": "2b9baa38-f896-48ed-bbf8-0e0479f76cf5",
+                                        "layerType": "data",
+                                        "legendDisplay": "default",
+                                        "metrics": [
+                                            "98a40672-a990-44c9-ac81-2689ac98495c"
+                                        ],
+                                        "nestedLegend": false,
+                                        "numberDisplay": "percent",
+                                        "primaryGroups": [
+                                            "d3092ee2-353d-4b56-bd77-99e54d638313"
+                                        ]
+                                    }
+                                ],
+                                "shape": "pie"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsPie"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "f1b84671-ab7a-49a6-8311-35839fa2770e",
+                    "w": 22,
+                    "x": 0,
+                    "y": 5
+                },
+                "panelIndex": "f1b84671-ab7a-49a6-8311-35839fa2770e",
+                "title": "Event distribution by type",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-641c5621-ba84-4ae5-9f93-f0e92e86558e",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "6324b0c2-7bab-4aa3-b18f-d532806b0431",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "641c5621-ba84-4ae5-9f93-f0e92e86558e": {
+                                            "columnOrder": [
+                                                "19a6f8b2-108d-4b88-89af-670ab92de30c",
+                                                "8caca79c-54d1-4fbe-8d04-852484887939",
+                                                "dfe5c330-87be-4731-be91-aeeae250bed7"
+                                            ],
+                                            "columns": {
+                                                "19a6f8b2-108d-4b88-89af-670ab92de30c": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top 100 values of sailpoint_identity_security_cloud.events.operation",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "dfe5c330-87be-4731-be91-aeeae250bed7",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 100
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.operation"
+                                                },
+                                                "8caca79c-54d1-4fbe-8d04-852484887939": {
+                                                    "customLabel": true,
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": " ",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.created"
+                                                },
+                                                "dfe5c330-87be-4731-be91-aeeae250bed7": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "event operations",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.operation"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.dataset",
+                                        "index": "6324b0c2-7bab-4aa3-b18f-d532806b0431",
+                                        "key": "event.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "sailpoint_identity_security_cloud.events"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.dataset": "sailpoint_identity_security_cloud.events"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "dfe5c330-87be-4731-be91-aeeae250bed7"
+                                        ],
+                                        "colorMapping": {
+                                            "assignments": [],
+                                            "colorMode": {
+                                                "type": "categorical"
+                                            },
+                                            "paletteId": "eui_amsterdam_color_blind",
+                                            "specialAssignments": [
+                                                {
+                                                    "color": {
+                                                        "type": "loop"
+                                                    },
+                                                    "rule": {
+                                                        "type": "other"
+                                                    },
+                                                    "touched": false
+                                                }
+                                            ]
+                                        },
+                                        "layerId": "641c5621-ba84-4ae5-9f93-f0e92e86558e",
+                                        "layerType": "data",
+                                        "position": "top",
+                                        "seriesType": "bar_stacked",
+                                        "showGridlines": false,
+                                        "splitAccessor": "19a6f8b2-108d-4b88-89af-670ab92de30c",
+                                        "xAccessor": "8caca79c-54d1-4fbe-8d04-852484887939"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "bar_stacked",
+                                "title": "Empty XY chart",
+                                "valueLabels": "hide"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "cbc6da43-7258-49bf-b340-aa09e05a6c3b",
+                    "w": 26,
+                    "x": 22,
+                    "y": 5
+                },
+                "panelIndex": "cbc6da43-7258-49bf-b340-aa09e05a6c3b",
+                "title": "Event distribution by operations",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-e3b4d369-eb89-4026-ad4b-44ac7f755b7f",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "e3b4d369-eb89-4026-ad4b-44ac7f755b7f": {
+                                            "columnOrder": [
+                                                "6e349836-0f11-472e-a87b-3c9898601324",
+                                                "13232642-292f-4dab-a9b9-57bb2e47f45d",
+                                                "a1e84117-f778-4cdd-bc48-3831ca3aacd5"
+                                            ],
+                                            "columns": {
+                                                "13232642-292f-4dab-a9b9-57bb2e47f45d": {
+                                                    "customLabel": true,
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": " ",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.created"
+                                                },
+                                                "6e349836-0f11-472e-a87b-3c9898601324": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top 100 values of sailpoint_identity_security_cloud.events.status",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "a1e84117-f778-4cdd-bc48-3831ca3aacd5",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 100
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                },
+                                                "a1e84117-f778-4cdd-bc48-3831ca3aacd5": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count of event status",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "sailpoint_identity_security_cloud.events.status"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.dataset",
+                                        "index": "4ad833d1-f6cb-46b4-beb6-2c9e89098b46",
+                                        "key": "event.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "sailpoint_identity_security_cloud.events"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.dataset": "sailpoint_identity_security_cloud.events"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "a1e84117-f778-4cdd-bc48-3831ca3aacd5"
+                                        ],
+                                        "colorMapping": {
+                                            "assignments": [],
+                                            "colorMode": {
+                                                "type": "categorical"
+                                            },
+                                            "paletteId": "eui_amsterdam_color_blind",
+                                            "specialAssignments": [
+                                                {
+                                                    "color": {
+                                                        "type": "loop"
+                                                    },
+                                                    "rule": {
+                                                        "type": "other"
+                                                    },
+                                                    "touched": false
+                                                }
+                                            ]
+                                        },
+                                        "layerId": "e3b4d369-eb89-4026-ad4b-44ac7f755b7f",
+                                        "layerType": "data",
+                                        "position": "top",
+                                        "seriesType": "bar_stacked",
+                                        "showGridlines": false,
+                                        "splitAccessor": "6e349836-0f11-472e-a87b-3c9898601324",
+                                        "xAccessor": "13232642-292f-4dab-a9b9-57bb2e47f45d"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "bar_stacked",
+                                "title": "Empty XY chart",
+                                "valueLabels": "hide"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "32d247db-5428-4514-848f-af2f24b75dd3",
+                    "w": 24,
+                    "x": 0,
+                    "y": 20
+                },
+                "panelIndex": "32d247db-5428-4514-848f-af2f24b75dd3",
+                "title": "Event distribution by status",
+                "type": "lens"
+            }
+        ],
+        "timeRestore": false,
+        "title": "[Events Sailpoint identity security cloud][Overview]",
+        "version": 2
+    },
+    "coreMigrationVersion": "8.8.0",
+    "created_at": "2025-01-30T19:14:24.970Z",
+    "created_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0",
+    "id": "sailpoint_identity_security_cloud-ab03de8b-c82e-47c5-95f5-39fd29369fe1",
+    "managed": false,
+    "references": [
+        {
+            "id": "logs-*",
+            "name": "d92d9d3a-229b-4e7e-8d16-f1581effd32b:indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "d92d9d3a-229b-4e7e-8d16-f1581effd32b:indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "d92d9d3a-229b-4e7e-8d16-f1581effd32b:2c96901d-ce0c-4482-b152-6b5f10e410ce",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "17fd0e88-898d-4fcc-8a39-a5e28c290d3e:indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "17fd0e88-898d-4fcc-8a39-a5e28c290d3e:indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e03847f3-ed7a-4d24-bb3a-dc1630c9ecc9:indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e03847f3-ed7a-4d24-bb3a-dc1630c9ecc9:indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e03847f3-ed7a-4d24-bb3a-dc1630c9ecc9:d790f6f9-7c8e-4cfc-884f-9fa5e07540a3",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "6851f847-e6a9-4583-8cc2-70a7bb2cf481:indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "6851f847-e6a9-4583-8cc2-70a7bb2cf481:indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "f9931fc9-0cd0-4ea9-bc8f-1a3f8d34c9e8:indexpattern-datasource-layer-53a11365-3e5d-447a-8f77-db32dd126f00",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "f9931fc9-0cd0-4ea9-bc8f-1a3f8d34c9e8:indexpattern-datasource-layer-b451964b-ccc2-43aa-b6f2-8e25cf97f3f2",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "f9931fc9-0cd0-4ea9-bc8f-1a3f8d34c9e8:55c6b7f6-f28e-4f4f-954d-a651ada6aa1b",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "f1b84671-ab7a-49a6-8311-35839fa2770e:indexpattern-datasource-layer-2b9baa38-f896-48ed-bbf8-0e0479f76cf5",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "f1b84671-ab7a-49a6-8311-35839fa2770e:69906880-3e1a-40aa-9521-62422d0967c5",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "cbc6da43-7258-49bf-b340-aa09e05a6c3b:indexpattern-datasource-layer-641c5621-ba84-4ae5-9f93-f0e92e86558e",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "cbc6da43-7258-49bf-b340-aa09e05a6c3b:6324b0c2-7bab-4aa3-b18f-d532806b0431",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "32d247db-5428-4514-848f-af2f24b75dd3:indexpattern-datasource-layer-e3b4d369-eb89-4026-ad4b-44ac7f755b7f",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "dashboard",
+    "typeMigrationVersion": "10.2.0",
+    "updated_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0"
+}

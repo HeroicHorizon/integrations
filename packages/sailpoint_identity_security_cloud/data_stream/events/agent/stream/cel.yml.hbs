@@ -57,7 +57,7 @@ program: |-
   					}
   				),
   				"want_more": size(body) == state.limit,
-  				"cursor": {"searchAfter": string(body[int(size(body) - 1)].created)},
+  				"cursor": {"searchAfter": (size(body) > 0) ? string(body[int(size(body) - 1)].created) : state.?cursor.searchAfter.orValue("")},
   			}
   		)
   	)
