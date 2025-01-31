@@ -1,44 +1,33 @@
 rules:
   # OAuth Token Endpoint
-  - path: "/oauth/token"
+  - path: /oauth/token
     methods: ['POST']
     query_params:
       grant_type: client_credentials
-      client_id: qwerty
-      client_secret: eweqweqwqew
+      client_id: qwerty      
+      client_secret: eweqweqwqew 
     request_headers:
-      Content-Type:
-        - "application/x-www-form-urlencoded"
+      Content-Type: ["application/x-www-form-urlencoded"]
     responses:
       - status_code: 200
         headers:
-          Content-Type: ['application/json']
+          Content-Type: ["application/json"]
         body: |
           {
             "access_token": "xxxxxxxxxxxxx",
             "expires_in": 3600,
             "token_type": "Bearer"
           }
-        # Search Events Endpoint
-  - path: "/v2024/search/events"
+
+  # Search Events Endpoint initial
+  - path: /v2024/search/events
     methods: ["POST"]
     request_headers:
-      Authorization:
-        - "Bearer xxxxxxxxxxxxx"
-      Content-Type:
-        - "application/json; charset=utf-8"
-    request_body: |
-      {
-        "searchAfter": \[\],
-        "queryType": "SAILPOINT",
-        "sort": \["created"\],
-        "query": {
-          "query": .*
-        },
-        "queryResultFilter": {}
-      }
+      Authorization: ["Bearer xxxxxxxxxxxxx"]
+      Content-Type: ["application/json"]
+    request_body: /^\{"query":\{"query":"\*"\},"queryResultFilter":\{\},"queryType":"SAILPOINT","searchAfter":\["[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z"\],"sort":\["created"\]\}/
     query_params:
-      limit: 2
+      limit: "2"
     responses:
       - status_code: 200
         headers:
@@ -46,65 +35,60 @@ rules:
         body: |
           [
             {
-              "org": "ta-partner14055",
-              "pod": "se01-useast1",
               "created": "2024-12-12T19:41:24.121Z",
               "id": "cb2fc359e6b31aad1fdc2d290e5279a71cf747eda0221d8f46e1f775bba21c89",
               "action": "AUTHENTICATION-103",
               "type": "AUTH",
-              "actor": {
-                "name": "test.user"
-              },
-              "target": {
-                "name": "test.user"
-              },
-              "stack": "oathkeeper",
-              "trackingNumber": "fb38cc3fb990451dab51133aed21268a",
-              "ipAddress": "223.233.84.6",
-              "details": "fb38cc3fb990451dab51133aed21268a",
-              "attributes": {
-                "pod": "se01-useast1",
-                "org": "ta-partner14055",
-                "sourceName": "SailPoint",
-                "info": "LOGIN_SUCCESS",
-                "hostName": "223.233.84.6"
-              },
-              "objects": ["AUTHENTICATION"],
-              "operation": "REQUEST",
-              "status": "PASSED",
-              "technicalName": "AUTHENTICATION_REQUEST_PASSED",
-              "name": "Request Authentication Passed",
-              "synced": "2024-12-23T10:58:52.305Z",
-              "_type": "event",
-              "_version": "v2"
+              "actor": { "name": "test.user" },
+              "_type": "event"
             },
             {
-              "org": "ta-partner14055",
-              "pod": "se01-useast1",
               "created": "2024-12-12T19:41:24.124Z",
               "id": "a99320b19b034ae1b68181754b5df214",
               "action": "IDENTITY_PROCESSING",
               "type": "IDENTITY_PROCESSING",
-              "actor": {
-                "name": "slpt.support"
-              },
-              "target": {
-                "name": "Garth.Ford"
-              },
-              "trackingNumber": "f4672d0c24f341269d31d5edde951888",
-              "attributes": {
-                "operation": "MANUAL",
-                "processId": "f4672d0c24f341269d31d5edde951888",
-                "duration": "2 minutes 27 seconds",
-                "identitiesProcessed": "0"
-              },
-              "objects": ["IDENTITY", "PROCESSING"],
-              "operation": "MANUAL",
-              "status": "PASSED",
-              "technicalName": "IDENTITY_PROCESSING_MANUAL_PASSED",
-              "name": "Manual Identity Processing Passed",
-              "synced": "2024-12-12T19:41:54.765Z",
-              "_type": "event",
-              "_version": "v2"
+              "actor": { "name": "slpt.support" },
+              "_type": "event"
             }
           ]
+  # Search Events Endpoint 1st pagination
+  - path: /v2024/search/events
+    methods: ["POST"]
+    request_headers:
+      Authorization: ["Bearer xxxxxxxxxxxxx"]
+      Content-Type: ["application/json"]
+    request_body: /^\{"query":\{"query":"\*"\},"queryResultFilter":\{\},"queryType":"SAILPOINT","searchAfter":\["2024-12-12T19:41:24\.124Z"\],"sort":\["created"\]\}/
+    query_params:
+      limit: "2"
+    responses:
+      - status_code: 200
+        headers:
+          Content-Type: ["application/json"]
+        body: |
+          [
+            {
+              "created": "2024-12-13T20:41:24.121Z",
+              "id": "cb2fc359e6b31aad1fdc2d290e5279a71cf747eda0221d8f46e1f775bba21c77",
+              "action": "AUTHENTICATION-103",
+              "type": "AUTH",
+              "actor": { "name": "test.user" },
+              "_type": "event"
+            }
+          ]          
+
+
+  # Search Events Endpoint 2nd pagination and should stop here
+  - path: /v2024/search/events
+    methods: ["POST"]
+    request_headers:
+      Authorization: ["Bearer xxxxxxxxxxxxx"]
+      Content-Type: ["application/json"]
+    request_body: /^\{"query":\{"query":"\*"\},"queryResultFilter":\{\},"queryType":"SAILPOINT","searchAfter":\["2024-12-13T20:41:24\.121Z"\],"sort":\["created"\]\}/
+    query_params:
+      limit: "2"
+    responses:
+      - status_code: 200
+        headers:
+          Content-Type: ["application/json"]
+        body: |
+          []           
